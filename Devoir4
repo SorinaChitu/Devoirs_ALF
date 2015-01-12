@@ -1,0 +1,18 @@
+//Etudiante: CHITU Maria-Sorina, 1241F
+
+//Utiliser ANTLR pour faire l'arbre du langage boss.
+
+//L'analyseur de l'arbre
+
+expr returns [int r]
+{
+ int a,b;
+ r=0;
+}
+ : #(PLUS a=expr b=expr)
+ {r = a+b;}
+ | #(STAR a=expr b=expr)
+ {r = a*b;}
+ | i:INT {r = Integer.parseInt
+ (i.getText());}
+ ; 
